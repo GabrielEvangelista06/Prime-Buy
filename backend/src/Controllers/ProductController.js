@@ -6,10 +6,10 @@ const getAll = async (_req, res) => {
   return res.status(200).json(products);
 };
 
-const createProduct = async (_req, res) => {
-  // const createProduct = await productsModel.createProduct();
+const createProduct = async (req, res) => {
+  const createProduct = await productsModel.createProduct(req.body);
 
-  return res.status(201).json({ message: 'Product created successfully' });
+  return res.status(201).json(createProduct);
 };
 
 module.exports = {
