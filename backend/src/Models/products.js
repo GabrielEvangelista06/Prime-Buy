@@ -17,7 +17,10 @@ const createProduct = async (product) => {
     price,
   ]);
 
-  return createdProduct.rows;
+  return {
+    message: 'Product created successfully',
+    product: createdProduct.name,
+  };
 };
 
 module.exports = {
