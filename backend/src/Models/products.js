@@ -23,7 +23,15 @@ const createProduct = async (product) => {
   };
 };
 
+const deleteProduct = async (id) => {
+  const removedProduct = await connection.query('DELETE FROM products WHERE id = $1', [id]
+  );
+
+  return removedProduct;
+};
+
 module.exports = {
   getAll,
   createProduct,
+  deleteProduct,
 };
