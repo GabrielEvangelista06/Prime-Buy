@@ -9,8 +9,7 @@ const getAll = async () => {
 const createProduct = async (product) => {
   const { name, description, price } = product;
 
-  const query =
-    'INSERT INTO products (name, description, price) VALUES(?, ?, ?)';
+  const query = 'INSERT INTO products (name, description, price) VALUES($1, $2, $3)';
 
   const createdProduct = await connection.query(query, [
     name,
