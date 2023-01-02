@@ -1,4 +1,4 @@
-const connection = require('./connection');
+const connection = require('./dbconnection');
 
 const getAll = async () => {
   const products = await connection.query('SELECT * FROM products');
