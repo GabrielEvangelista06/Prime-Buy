@@ -27,4 +27,5 @@ const createUser = async (user) => {
 
 module.exports = {
   getAllUsers,
+  createUser,
 };
