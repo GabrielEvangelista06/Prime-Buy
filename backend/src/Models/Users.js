@@ -6,6 +6,25 @@ const getAllUsers = async () => {
   return users.rows;
 };
 
+const createUser = async (user) => {
+  const { name, username, email, password } = user;
+
+  const query =
+    'INSERT INTO users (name, username, email, password) VALUES (?,?,?,?)';
+
+  const createdUser = await connection.query(query, [
+    name,
+    username,
+    email,
+    password,
+  ]);
+
+  return {
+    message: 'Usuário criado com sucesso',
+    user: createdUser.name,
+  };
+};
+
 module.exports = {
   getAllUsers,
 };
