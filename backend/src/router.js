@@ -1,6 +1,7 @@
 const express = require('express');
 const productsController = require('./Controllers/ProductController');
 const productMiddleware = require('./Middlewares/ProductMiddleware');
+const userController = require('./Controllers/UserController');
 
 const router = express.Router();
 
@@ -20,5 +21,7 @@ router.put(
   productMiddleware.validatePrice,
   productsController.updateProduct
 );
+
+router.get('/users', userController.getAllUsers);
 
 module.exports = router;
