@@ -10,7 +10,7 @@ const createUser = async (user) => {
   const { name, username, email, password } = user;
 
   const query =
-    'INSERT INTO users (name, username, email, password) VALUES (?,?,?,?)';
+    'INSERT INTO users (name, username, email, password) VALUES ($1,$2,$3,$4)';
 
   const createdUser = await connection.query(query, [
     name,
