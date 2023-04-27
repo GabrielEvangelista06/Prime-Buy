@@ -34,18 +34,20 @@ const deleteUser = async (id) => {
   return removedUser;
 };
 
-const updateUser = async (id, product) => {
-  const { name, description, price } = product;
+const updateUser = async (id, user) => {
+  const { name, username, email, password } = user;
   const query =
-    'UPDATE products SET name = $1, description = $2, price = $3 WHERE id = $4';
-  const updateProduct = await connection.query(query, [
+    'UPDATE users SET name = $1, username = $2, email = $3, password = $4 WHERE id = $5';
+
+  const updateUser = await connection.query(query, [
     name,
-    description,
-    price,
+    username,
+    email,
+    password,
     id,
   ]);
 
-  return updateProduct;
+  return updateUser;
 };
 
 module.exports = {
