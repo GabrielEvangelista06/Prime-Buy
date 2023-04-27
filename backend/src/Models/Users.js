@@ -34,8 +34,25 @@ const deleteUser = async (id) => {
   return removedUser;
 };
 
+const updateUser = async (id, user) => {
+  const { name, username, email, password } = user;
+  const query =
+    'UPDATE users SET name = $1, username = $2, email = $3, password = $4 WHERE id = $5';
+
+  const updateUser = await connection.query(query, [
+    name,
+    username,
+    email,
+    password,
+    id,
+  ]);
+
+  return updateUser;
+};
+
 module.exports = {
   getAllUsers,
   createUser,
   deleteUser,
+  updateUser,
 };
