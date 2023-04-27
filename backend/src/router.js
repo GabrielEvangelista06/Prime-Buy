@@ -24,5 +24,6 @@ router.put(
 
 router.get('/users', userController.getAllUsers);
 router.post('/users', userController.createUser);
+router.delete('/products/:id', userController.deleteUser);
 
 module.exports = router;
